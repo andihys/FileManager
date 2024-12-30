@@ -1,5 +1,5 @@
 
-# Modern File Manager Projects
+# File Manager
 
 This repository contains the **File Manager** and **Advanced File Manager** projects with a focus on clean design, modern functionality, and user-friendliness.
 
