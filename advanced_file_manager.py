@@ -295,6 +295,29 @@ class FileManagerApp:
         self.log(f"Moved {file_path} to {category_folder}", color="blue")
 
 
+    def preview_action(self, title, message, preview_details, action):
+        def proceed():
+            confirmation_window.destroy()
+            action()
+
+        def cancel():
+            confirmation_window.destroy()
+
+        confirmation_window = tk.Toplevel(self.root)
+        confirmation_window.title(title)
+        confirmation_window.geometry("600x400")
+        confirmation_window.resizable(False, False)
+
+        tk.Label(confirmation_window, text=message, font=self.font_primary, wraplength=580, justify="center", bg=self.theme_color).pack(pady=10)
+        preview_text = tk.Text(confirmation_window, wrap="word", height=15, font=("Courier New", 10), bg="#ffffff", fg="#333333")
+        preview_text.pack(padx=10, pady=5, fill="both", expand=True)
+        preview_text.insert("1.0", preview_details)
+        preview_text.config(state="disabled")
+
+        tk.Button(confirmation_window, text="Accept", command=proceed, bg="#007aff", fg="white", font=self.font_primary, width=15).pack(side="left", padx=50, pady=10)
+        tk.Button(confirmation_window, text="Decline", command=cancel, bg="#d9534f", fg="white", font=self.font_primary, width=15).pack(side="right", padx=50, pady=10)
+
+
 if __name__ == "__main__":
     root = tk.Tk()
     app = FileManagerApp(root)
