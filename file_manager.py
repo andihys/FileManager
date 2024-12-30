@@ -1,4 +1,3 @@
-
 import os
 import shutil
 import tkinter as tk
@@ -9,12 +8,12 @@ class FileManagerApp:
     def __init__(self, root):
         self.root = root
         self.root.title("File Manager")
-        self.root.geometry("400x200")
+        self.root.geometry("450x250")
 
         self.folder_path = tk.StringVar()
 
-        tk.Label(self.root, text="Folder Path:").pack(pady=10)
-        tk.Entry(self.root, textvariable=self.folder_path, width=50).pack()
+        tk.Label(self.root, text="Select a folder to organize:").pack(pady=10)
+        tk.Entry(self.root, textvariable=self.folder_path, width=50).pack(pady=5)
         tk.Button(self.root, text="Browse", command=self.browse_folder).pack(pady=5)
         tk.Button(self.root, text="Organize Files", command=self.organize_files).pack(pady=20)
 
@@ -37,7 +36,7 @@ class FileManagerApp:
                 "Music": [".mp3", ".wav", ".aac", ".flac"],
                 "Archives": [".zip", ".rar", ".7z", ".tar"],
                 "Code": [".py", ".c", ".cpp", ".java"],
-                "Exe": [".exe"]
+                "Executables": [".exe"]
             }
 
             for category, extensions in file_types.items():
@@ -49,7 +48,7 @@ class FileManagerApp:
                     if os.path.isfile(file_path) and file_name.lower().endswith(tuple(extensions)):
                         shutil.move(file_path, os.path.join(category_folder, file_name))
 
-            messagebox.showinfo("Success", "Files organized successfully!")
+            messagebox.showinfo("Success", "Files have been organized successfully!")
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred: {e}")
 
