@@ -131,7 +131,8 @@ class FileManagerApp:
                 "Documents": [".md", ".pdf", ".docx", ".txt", ".xlsx", ".pptx"],
                 "Videos": [".mp4", ".mkv", ".avi", ".mov"],
                 "Music": [".mp3", ".wav", ".aac", ".flac"],
-                "Code": [".py", ".c", ".cpp"]
+                "Code": [".py", ".c", ".cpp", ".java"],
+                "Executables": [".exe"]
             }
 
             for file_name in os.listdir(folder):
