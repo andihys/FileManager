@@ -128,10 +128,10 @@ class FileManagerApp:
         try:
             file_types = {
                 "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff"],
-                "Documents": [".pdf", ".docx", ".txt", ".xlsx", ".pptx"],
+                "Documents": [".md", ".pdf", ".docx", ".txt", ".xlsx", ".pptx"],
                 "Videos": [".mp4", ".mkv", ".avi", ".mov"],
                 "Music": [".mp3", ".wav", ".aac", ".flac"],
-                "Others": []
+                "Code": [".py", ".c", ".cpp"]
             }
 
             for file_name in os.listdir(folder):
